@@ -2,10 +2,19 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %title ReBlogapp
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
+    %header.header
+      %p.header_pageTitle 新着記事
+      .dropdown
+        = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+        .dropdown-content
+          = link_to 'プロフィール',root_path
+          = link_to 'ログアウト',root_path
     = yield
